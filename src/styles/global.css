@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    box-sizing: border-box;
+}
+
+.link-items{
+    transition:all 0.3s ease;
+    @apply inline-block p-1 text-xl mx-3 hover:text-zinc-400 text-black  ;
+    cursor: pointer;
+   
+}
+
+.presentation-image {
+    box-shadow: 10px 10px 0 0 black;
+    background-color: black;
+}
+
+.presentation-image{
+    border-bottom-left-radius: 25%;
+    border-top-right-radius: 25%;
+}
+
+.carrousel{
+    position: relative;
+    border-left: 1rem rgba(17, 17, 17, 0.801);
+    border-right: 1rem rgba(17, 17, 17, 0.801);
+}
+
+.skill-item{
+    transition: all 150ms ease;
+}
+.skill-item:hover h2{
+    @apply text-cyan-300;
+}
