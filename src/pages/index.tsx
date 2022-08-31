@@ -4,7 +4,7 @@ import { Footer } from "../components/Footer"
 import { MainContent } from "../components/MainContent"
 import Navbar from "../components/Navbar"
 import { Skills } from "../components/Skills"
-
+import icon from "../images/deno.png"
 
 const IndexPage = () => {
   return (
@@ -23,7 +23,7 @@ export default IndexPage
 export function Head () {
   return <>
     <title>Daniel Porras | Portfolio</title>
-
+    <link rel="icon" href={icon} type="image/x-icon" />
   </>
 
 }
