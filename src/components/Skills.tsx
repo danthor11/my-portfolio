@@ -58,17 +58,23 @@ export const Skills = () => {
   }
 
   return (
-    <div className="bg-slate-900 w-full py-6">
-      <h2 className="text-3xl font-semibold text-slate-50 text-center mt-4 mb-6 capitalize">
+    <div className="bg-slate-900 w-full py-6" id="skills">
+      <h2 
+        className="text-3xl font-bold text-slate-50 text-center mt-4 mb-6 uppercase"
+        style={{fontFamily:"Montserrat"}}
+      >
         Skills
       </h2>
-      <div 
-        className="flex gap-6  px-4 py-2 overflow-hidden max-w-2xl mx-auto carrousel "
-        ref={carrousel}
-      >
-        {data.map(({label,url_image}:SkillsProps) => (
-          <Skill key={label}  label={label} url_image={url_image} stop={stopCarrousel} continue={continueCarrousel}/>
-        ))}
+      <div className=" carrousel-container">
+
+        <div 
+          className="flex gap-6  px-4 py-2 overflow-hidden max-w-2xl mx-auto carrousel "
+          ref={carrousel}
+        >
+          {data.map(({label,url_image}:SkillsProps) => (
+            <Skill key={label}  label={label} url_image={url_image} stop={stopCarrousel} continue={continueCarrousel}/>
+          ))}
+        </div>
       </div>
     </div>
   );

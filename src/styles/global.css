@@ -1,9 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 *{
     box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 .link-items{
@@ -31,7 +38,45 @@
 
 .skill-item{
     transition: all 150ms ease;
+
 }
+.carrousel-container{
+    position: relative;
+}
+
+.carrousel-container::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    z-index: 999;
+    margin-left: 150px;
+    background: linear-gradient(to right,rgb(0, 0, 0),rgba(0,0,0,0.4), rgba(10, 10, 10, 0.1),rgba(10, 10, 10, 0.01));
+}
+
+.carrousel-container::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    margin-right: 150px;
+    background: linear-gradient(to left,rgb(0, 0, 0),rgba(0,0,0,0.4), rgba(10, 10, 10, 0.1));
+    
+}
+
+
 .skill-item:hover h2{
     @apply text-cyan-300;
+}
+
+.form-input{
+    @apply py-6 px-8  rounded-lg text-base border transition-all border-neutral-200 placeholder:uppercase ;
+}
+
+.form-btn{
+    @apply py-4 px-6 bg-blue-500 text-slate-50 transition-all border hover:bg-blue-400 rounded-md font-bold font-sans disabled:bg-blue-400 ;
 }

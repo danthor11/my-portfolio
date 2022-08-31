@@ -12,7 +12,7 @@ export const Skill = (skills : SkillsProps) => {
 
     return (
     <div 
-        className="min-w-fit hover:scale-110 transition-all skill-item"
+        className="min-w-fit hover:scale-110 transition-all skill-item relative"
         onMouseEnter={skills.stop}
         onMouseLeave={skills.continue}
     >
