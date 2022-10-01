@@ -3,8 +3,8 @@ import { Presentation } from './Presentation'
 
 export const MainContent = () => {
   return (
-    <div className='w-full'>
+    <section className='w-full'>
         <Presentation />
-    </div>
+    </section>
   )
 }
