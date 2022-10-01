@@ -1,13 +1,14 @@
 import { graphql, useStaticQuery } from "gatsby";
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
+import { CarrouselContextProvider } from "../context/carrousel";
+import { useCarrousel } from "../hook/useCarrousel";
 import { Skill , SkillsProps} from "./skill";
 
 
 
 export const Skills = () => {
-  const [moveStep, setMoveStep] = useState<number>(1)
-  const [lastMoveStep, setLastMoveStep] = useState<number>(0)
-  const carrousel = useRef<HTMLDivElement>(null)
+  const carrouselRef = useRef<HTMLDivElement>(null)
+  const carrousel = useCarrousel(carrouselRef)
 
   const {skillsJson:{data}} = useStaticQuery(graphql`
     query MyQuery {
@@ -20,56 +21,28 @@ export const Skills = () => {
     }
   `);
 
-  useLayoutEffect(() => {
-    
-    if(!carrousel.current) return
 
-    const target = carrousel.current 
-
-    const interval : NodeJS.Timer= setInterval(()=> {
-      
-        const maxWidth  = target.scrollWidth - target.clientWidth
-        
-        target.scrollLeft += moveStep
-        if(target.scrollLeft === maxWidth){
-          setMoveStep( moveStep * -1)
-        }
-        else if(target.scrollLeft === 0){
-          setMoveStep( moveStep * -1)
-        }
-        
-      
-    },20)
-
-    return () => {
-      clearInterval(interval)
-    }
-    
-  }, [moveStep])
-  
-  const stopCarrousel = () => {
-    setLastMoveStep(moveStep)
-    setMoveStep(0)
-  } 
-
-  const continueCarrousel = () => {
-    setMoveStep(lastMoveStep)
-    
-  }
 
   return (
-    <div className="bg-slate-900 w-full py-6">
-      <h2 className="text-3xl font-semibold text-slate-50 text-center mt-4 mb-6 capitalize">
+    <section className="bg-slate-900 w-full py-6" id="skills">
+      <h2 
+        className="text-3xl font-bold text-slate-50 text-center mt-4 mb-6 uppercase"
+        style={{fontFamily:"Montserrat"}}
+      >
         Skills
       </h2>
-      <div 
-        className="flex gap-6  px-4 py-2 overflow-hidden max-w-2xl mx-auto carrousel "
-        ref={carrousel}
-      >
-        {data.map(({label,url_image}:SkillsProps) => (
-          <Skill key={label}  label={label} url_image={url_image} stop={stopCarrousel} continue={continueCarrousel}/>
-        ))}
-      </div>
-    </div>
+      <CarrouselContextProvider>
+        <div className=" carrousel-container">
+          <div 
+            className="flex gap-6 gap-x-10 px-4 py-2 overflow-hidden max-w-xs  sm:max-w-lg md:max-w-lg  lg:max-w-4xl mx-auto carrousel outline  outline-2 outline-gray-600"
+            ref={carrouselRef}
+          >
+            {data.map(({label,url_image}:SkillsProps) => (
+              <Skill key={url_image} label={label} url_image={url_image} />
+            ))}
+          </div>
+        </div>
+      </CarrouselContextProvider>
+    </section>
   );
 };

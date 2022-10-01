@@ -1,9 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
 
 *{
     box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 .link-items{
@@ -14,13 +22,17 @@
 }
 
 .presentation-image {
-    box-shadow: 10px 10px 0 0 black;
-    background-color: black;
+    box-shadow: 10px 10px 0 0 rgb(15 23 42 / var(--tw-border-opacity));
+    background-color: rgb(15 23 42 / var(--tw-border-opacity));
 }
 
 .presentation-image{
     border-bottom-left-radius: 25%;
     border-top-right-radius: 25%;
+}
+
+.presentation-image:hover {
+    @apply scale-105;
 }
 
 .carrousel{
@@ -31,7 +43,68 @@
 
 .skill-item{
     transition: all 150ms ease;
+
 }
+.carrousel-container{
+    position: relative;
+    
+}
+
+.carrousel-containesr::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    z-index: 999;
+    margin-left: 150px;
+    background: linear-gradient(to right,rgb(0, 0, 0),rgba(0,0,0,0.4), rgba(10, 10, 10, 0.1),rgba(10, 10, 10, 0.01));
+}
+
+.carrousel-containesr::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    margin-right: 150px;
+    background: linear-gradient(to left,rgb(0, 0, 0),rgba(0,0,0,0.4), rgba(10, 10, 10, 0.1));
+    
+}
+
+
 .skill-item:hover h2{
     @apply text-cyan-300;
+}
+
+.form-input{
+    @apply py-4 px-6 bg-slate-200 rounded-lg  text-base border transition-all border-neutral-200 placeholder:uppercase ;
+}
+
+.form-btn{
+    @apply py-4 px-6 bg-blue-500 text-slate-50 transition-all border hover:bg-blue-400 rounded-md font-bold font-sans disabled:bg-blue-400 ;
+}
+
+.menu-active {
+
+    @apply   left-0  shadow-sm px-2 py-2 bg-white ;
+}
+
+.menu-active a{
+    @apply py-2  rounded border w-full mx-auto   hover:bg-blue-300;
+}
+
+.repository-link{
+    @apply py-1 px-2 bg-gray-100 rounded-md border border-gray-400 hover:bg-gray-300 self-center transition-all;
+    width: 4rem;
+}
+.repository-link img{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icons-social-media{
+    filter: invert(99%) sepia(1%) saturate(1353%) hue-rotate(236deg) brightness(116%) contrast(87%);
 }
