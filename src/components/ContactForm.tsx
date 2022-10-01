@@ -45,7 +45,7 @@ export const ContactForm = () => {
             }}
         >
             {({isSubmitting}) => (
-                <Form className='max-w-xl my-2 mx-4 flex flex-col gap-y-3 w-full justify-center' >  
+                <Form className='max-w-xl my-2 mx-4 flex flex-col gap-y-3 w-full justify-center bg-slate-300 py-6 px-5 rounded-md' >  
                     <Field
                         type="text"
                         className="form-input"
@@ -85,7 +85,7 @@ export const ContactForm = () => {
 
                     <Field
                         as="textarea"
-                        className="form-input h-40 resize-none"
+                        className="form-input h-30 resize-none"
                         placeholder="The message..."
                         name="message"
                     />

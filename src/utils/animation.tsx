@@ -7,12 +7,14 @@ interface AnimationProps {
   children: JSX.Element | JSX.Element[];
   animationType: AnimationName;
   speedAnimation: string;
+  className?: string
 }
 
 export const Animation = ({
   children,
   animationType,
   speedAnimation,
+  className
 }: AnimationProps) => {
   const style = {
     [animationType]: {
@@ -22,7 +24,10 @@ export const Animation = ({
         animationType
       ),
     },
+    
   };
 
-  return <StyleRoot style={style[animationType]}>{children}</StyleRoot>;
+  return <div className={className}>
+    <StyleRoot  style={style[animationType]} >{children}</StyleRoot>
+  </div>
 };

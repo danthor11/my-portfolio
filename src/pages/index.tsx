@@ -3,18 +3,23 @@ import { Contact } from "../components/Contact"
 import { Footer } from "../components/Footer"
 import { MainContent } from "../components/MainContent"
 import Navbar from "../components/Navbar"
+import { Projects } from "../components/Projects"
 import { Skills } from "../components/Skills"
+import { CarrouselContextProvider } from "../context/carrousel"
 import icon from "../images/deno.png"
 
 const IndexPage = () => {
   return (
+    <CarrouselContextProvider>
       <main>
-          <Navbar/>
+          <Navbar />
           <MainContent />
           <Skills/>
+          <Projects />
           <Contact />
           <Footer/>
       </main>
+    </CarrouselContextProvider>
   )
 }
 
