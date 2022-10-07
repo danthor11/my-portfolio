@@ -6,19 +6,22 @@ import Navbar from "../components/Navbar"
 import { Projects } from "../components/Projects"
 import { Skills } from "../components/Skills"
 import { CarrouselContextProvider } from "../context/carrousel"
+import { SectionPositionProvider } from "../context/sectionsPosition"
 import icon from "../images/deno.png"
 
 const IndexPage = () => {
   return (
     <CarrouselContextProvider>
-      <main>
-          <Navbar />
-          <MainContent />
-          <Skills/>
-          <Projects />
-          <Contact />
-          <Footer/>
-      </main>
+      <SectionPositionProvider>
+        <main>
+            <Navbar />
+            <MainContent />
+            <Skills/>
+            <Projects />
+            <Contact />
+            <Footer/>
+        </main>
+      </SectionPositionProvider>
     </CarrouselContextProvider>
   )
 }

@@ -1,7 +1,8 @@
 import { graphql, useStaticQuery } from "gatsby";
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { CarrouselContextProvider } from "../context/carrousel";
 import { useCarrousel } from "../hook/useCarrousel";
+import { useScrollMove } from "../hook/useScrollMove";
 import { Skill , SkillsProps} from "./skill";
 
 
@@ -9,6 +10,8 @@ import { Skill , SkillsProps} from "./skill";
 export const Skills = () => {
   const carrouselRef = useRef<HTMLDivElement>(null)
   const carrousel = useCarrousel(carrouselRef)
+  const skillsRef = useRef<HTMLElement>(null)
+  useScrollMove({ref:skillsRef})
 
   const {skillsJson:{data}} = useStaticQuery(graphql`
     query MyQuery {
@@ -22,9 +25,8 @@ export const Skills = () => {
   `);
 
 
-
   return (
-    <section className="bg-slate-900 w-full py-6" id="skills">
+    <section className="bg-slate-900 w-full py-6" id="skills" ref={skillsRef}>
       <h2 
         className="text-3xl font-bold text-slate-50 text-center mt-4 mb-6 uppercase"
         style={{fontFamily:"Montserrat"}}

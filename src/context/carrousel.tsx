@@ -14,7 +14,7 @@ export const CarrouselContextProvider = ({children}:any) => {
     const [lastMoveStep, setLastMoveStep] = useState<number>(0)
 
     const stopCarrousel = () => {
-        console.log("stop",moveStep)
+        
         setLastMoveStep(moveStep)
         setMoveStep(0)
     } 

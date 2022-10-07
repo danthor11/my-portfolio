@@ -1,5 +1,6 @@
 import { graphql,  Link,  useStaticQuery } from 'gatsby'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { useScrollMove } from '../hook/useScrollMove'
 import Project from './Project'
 
 interface ProjectsProps{
@@ -10,6 +11,8 @@ interface ProjectsProps{
 }
 
 export const Projects = () => {
+  const refProjects = useRef<HTMLElement>(null)
+  useScrollMove({ref:refProjects})
 
   const {projectsJson:{data}  } = useStaticQuery(graphql`
     query MyProjects {
@@ -24,8 +27,9 @@ export const Projects = () => {
     }
   `)
 
+
   return (
-    <section className=' bg-slate-600 py-8' id="projects">
+    <section className=' bg-slate-600 py-8' id="projects" ref={refProjects}>
         <h2 
             className='text-3xl font-bold text-slate-50 text-center py-4 uppercase '
             style={{fontFamily:"Montserrat"}}

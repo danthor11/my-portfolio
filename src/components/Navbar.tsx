@@ -2,9 +2,11 @@ import { Link } from "gatsby";
 import React, { useState } from "react";
 import { Animation } from "../utils/animation";
 import menu from "../images/menu.png";
+import { useScrollMove } from "../hook/useScrollMove";
 
 const Navbar = () => {
   const [menuBtn, setMenuBtn] = useState(false);
+  const { scrollTo } = useScrollMove({})
 
   return (
     <Animation speedAnimation="x 3s" animationType="fadeIn" >
@@ -17,14 +19,14 @@ const Navbar = () => {
         </h2>
         <div className=" flex-row items-center mx-9 invisible hidden sm:visible sm:flex">
           <span className="link-items  ">Home</span>
-          <span className="link-items">
-            <Link to="/#skills">Skills</Link>
+          <span className="link-items"onClick={()=> {scrollTo("skills")}}>
+            <p >Skills</p>
           </span>
-          <span className="link-items ">
-            <Link to="/#projects">Projects</Link>
+          <span className="link-items " onClick={()=> {scrollTo("projects")}}>
+            <p  >Projects</p>
           </span>
-          <span className="link-items ">
-            <Link to="/#contact">Contact</Link>
+          <span className="link-items " onClick={()=> {scrollTo("contact")}}>
+            <p >Contact</p>
           </span>
 
           

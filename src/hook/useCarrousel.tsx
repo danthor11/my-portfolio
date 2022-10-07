@@ -7,7 +7,7 @@ export const useCarrousel = (carrousel:React.RefObject<HTMLDivElement>) => {
 
     useLayoutEffect(() => {
         if(!carrousel.current) return
-        console.log(ctx)
+        
         if(!ctx) return
         const target = carrousel.current 
 
