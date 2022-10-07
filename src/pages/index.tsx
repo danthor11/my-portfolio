@@ -9,6 +9,10 @@ import { CarrouselContextProvider } from "../context/carrousel"
 import { SectionPositionProvider } from "../context/sectionsPosition"
 
 const IndexPage = () => {
+  React.useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+
   return (
     <CarrouselContextProvider>
       <SectionPositionProvider>

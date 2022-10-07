@@ -112,3 +112,60 @@ html{
 .icons-social-media{
     filter: invert(99%) sepia(1%) saturate(1353%) hue-rotate(236deg) brightness(116%) contrast(87%);
 }
+
+.message-form-modal{
+    @apply fixed top-3 left-3 py-4 px-6  rounded-sm max-w-xs transition-all shadow-md;
+    transform: scale(0.1);
+    opacity: 0;
+}
+
+.message-form-modal-actived{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.message-form-modal::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    display: block;
+    height: 3px;
+    top: 0;
+    left: 0;
+
+    
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    
+
+    animation-name: bordercoloring;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+
+}
+
+.message-form-error::before{
+    background: linear-gradient(90deg, rgb(231, 173, 173) 0%, rgb(224, 95, 106) 50%, rgba(247,13,13,1) 100%);    
+    background-size: 200% 200%;
+}
+
+.message-form-successfully::before{
+    background: linear-gradient(90deg, rgba(208,244,210,1) 0%, rgba(62,244,70,1) 50%, rgba(0,153,67,1) 100%);
+    background-size: 200% 200%;
+}
+
+@keyframes bordercoloring {
+    0%{
+        background-position: 0 50%;
+    }
+
+    50%{
+        background-position: 100% 50%;
+    }
+    
+    100%{
+        background-position: 0 50%;
+    }
+}
