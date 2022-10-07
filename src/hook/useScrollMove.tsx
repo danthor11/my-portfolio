@@ -12,9 +12,7 @@ export const useScrollMove = ({ref=null,dependencies=[]} : useScrollProps ) => {
     const sectionCtx = useContext(SectionsPositionContext)
 
     const scrollTo = (nameSection: string) => {
-        console.log(nameSection)
         const sectionFinded = sectionCtx.position?.filter(position => position.name === nameSection)
-        console.log(sectionCtx,sectionFinded)
         if(sectionFinded){
             const {x,y} = sectionFinded[0].position
             window.scrollTo(x,y)
@@ -44,7 +42,8 @@ export const useScrollMove = ({ref=null,dependencies=[]} : useScrollProps ) => {
             name:ref.current.id,
             position: elPosition
         })
-      
+        
+        
     }, [])
     
 

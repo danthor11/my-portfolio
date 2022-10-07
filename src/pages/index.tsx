@@ -7,7 +7,6 @@ import { Projects } from "../components/Projects"
 import { Skills } from "../components/Skills"
 import { CarrouselContextProvider } from "../context/carrousel"
 import { SectionPositionProvider } from "../context/sectionsPosition"
-import icon from "../images/deno.png"
 
 const IndexPage = () => {
   return (
@@ -31,7 +30,7 @@ export default IndexPage
 export function Head () {
   return <>
     <title>Daniel Porras | Portfolio</title>
-    <link rel="icon" href={icon} type="image/x-icon" />
+    <link rel="icon" href={"../../images/deno.png"} type="image/x-icon" />
   </>
 
 }

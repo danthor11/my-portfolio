@@ -11,7 +11,7 @@ export const Skill = (skills : SkillsProps) => {
 
     return (
         <div 
-            className="min-w-fit hover:scale-110 transition-all skill-item relative"
+            className="min-w-fit hover:scale-110 transition-all skill-item relative py-4"
             onMouseLeave={()=> {ctx?.continueCarrousel()}}
             onMouseEnter={()=> {ctx?.stopCarrousel()}}
         >

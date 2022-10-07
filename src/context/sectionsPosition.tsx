@@ -27,9 +27,7 @@ export const SectionPositionProvider = ({children}: any) => {
     const [position, setPosition] = useState<Array<PositionProps>>([])
 
     const addPosition = (newPosition : PositionProps) => {
-    
-        setPosition(prev => [...prev,newPosition])
-        console.log(newPosition,position)
+        setPosition(prev => [...prev,newPosition])   
     }
 
    
